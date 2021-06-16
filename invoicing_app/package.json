@@ -1,0 +1,17 @@
+{
+  "name": "invoicing_app",
+  "version": "1.0.0",
+  "description": "\"backend for an invoicing app.\"",
+  "main": "index.js",
+  "scripts": {
+    "start":"nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yogesh kansal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.13",
+    "morgan": "^1.10.0"
+  }
+}
