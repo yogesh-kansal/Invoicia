@@ -1,22 +1,30 @@
-# Invoicing App API's Documnetation
----
-#
-
+# Invoicing App Documnetation
 ## Install dependencies
     npm  install
     npm install nodemon -g
+    
+## Instructions
+ __Environment Variables__
+ <br>
+`port` - port number for server.  (__Default__: 3000)
+<br>
+`DBNAME` - database name. (__Default__:"invoice_record")
+<br>
+`SECRETKEY` - for signing JWT token
+<br>
+`EMAIL` - Email used to send mail
+<br>
+`PASS` - password for the email account
+<br>
 
 ## Run the app
     npm start
+<br>
 
-#
-#
 # User API
----
 The REST API to user authentication in app.
-Below description shows only successful requests. 
-#
-
+<br>
+Below description shows only successfull requests. 
 ## User Signup
 ### Request
 __`POST`__  `/user/signup`
@@ -37,8 +45,6 @@ __`POST`__  `/user/signup`
     }
   body: user with email: admin@gmail.com has been signed up successfully
   ```
------
-#
 ## User Login
 ### Request
 __`POST`__  `/user/login`
@@ -59,26 +65,24 @@ __`POST`__  `/user/login`
     }
   body: {
     "message":"logged in successfully!!!",
-    "token":
+    "token":"..."
     }
   ```
-
-#
-#
-#
+<br>
 
 # Invoice API
----
 The REST API to do operations on invoices.
+<br>
 Below description shows only successful requests. 
+<br>
 API can be used after logging in of user only!!!
-#
+
 ## Retrieve all invoices
 ### Request
 __`GET`__  `/invoices`
   ```json
   headers: {
-    "Authorization":  //JWT Token
+    "Authorization":  "JWT Token (got from logging)"
     }
   ```
 ### Response
@@ -87,41 +91,95 @@ __`GET`__  `/invoices`
   headers: {
     "Content-type":  "application/json"
     }
-  body: [{}]
+  body: [] //array of invoices
   ```
------
-#
+
 ## Create new invoice
 ### Request
 __`POST`__  `/invoices`
   ```json
   headers: {
-    "Content-type":  "application/json"
+    "Content-type":  "application/json",
+      "Authorization":  "JWT Token (got from logging)"
     }
   body: {
+    "invoicee" : {
+        "name" : "admin",
+        "email" : "xyz@gmail.com"
+    },
+    "items" : [
+        {"name" : "fruits","rate" : 5,"quantity" : 10},
+        {"name" : "color", "rate" : 20,"quantity" : 10},
+        {"name" : "milk","rate" : 10,"quantity" : 10}
+    ],
+    "payment_methods" : [
+        "you can pay by cheque",
+        "for online payment use internet banking"
+    ],
+    "due_info": {
+        "days":7,
+        "hours":0
     }
+}
   ```
 ### Response
   ```json
   headers: {
     "Content-type":  "application/json",
-    "Authorization":  //JWT Token
     }
-  body: {
-    "status":"Invoice created and send to invoicee by Email successfully",
+  body:  {
+    "status": "Invoice created and send to invoicee by Email successfully",
     "invoice": {
-        
-        }
+        "total_ammount": 350,
+        "status": "outstanding",
+        "payment_methods": [
+            "you can pay by cheque",
+            "for online payment use internet banking"
+        ],
+        "due_date": "2021-06-27T20:46:44.464Z",
+        "_id": "60cf7f04931709205caaf281",
+        "invoicee": {
+            "name": "admin",
+            "email": "xyz@gmail.com"
+        },
+        "items": [
+            {
+                "_id": "60cf7f04931709205caaf282",
+                "name": "fruits",
+                "rate": 5,
+                "quantity": 10,
+                "ammount": 50
+            },
+            {
+                "_id": "60cf7f04931709205caaf283",
+                "name": "color",
+                "rate": 20,
+                "quantity": 10,
+                "ammount": 200
+            },
+            {
+                "_id": "60cf7f04931709205caaf284",
+                "name": "milk",
+                "rate": 10,
+                "quantity": 10,
+                "ammount": 100
+            }
+        ],
+        "biller": "admin@gmail.com",
+        "issue_date": "2021-06-20T17:46:44.464Z",
+        "createdAt": "2021-06-20T17:46:44.497Z",
+        "updatedAt": "2021-06-20T17:46:44.497Z",
+        "__v": 0
     }
+}
   ```
------
-#
+  
 ## Remove all invoices
 ### Request
 __`DELETE`__  `/invoices`
   ```json
   headers: {
-    "Authorization":  //JWT Token
+    "Authorization":  "JWT Token (got from logging)"
     }
   ```
 ### Response
@@ -135,8 +193,6 @@ __`DELETE`__  `/invoices`
     "message":"All invoices have been deleted successfully!!!"
   }
   ```
------
-#
 ## Retrieve late invoices
 ### Request
 __`GET`__  `/invoices/late`
@@ -151,19 +207,58 @@ __`GET`__  `/invoices/late`
     "Content-type":  "application/json"
     }
   body: [{
-      
-  }]
+        "invoicee": {
+            "name": "admin",
+            "email": "xyz@gmail.com"
+        },
+        "total_ammount": 700,
+        "status": "late",
+        "payment_methods": [
+            "you can pay by cheque",
+            "for online payment use internet banking"
+        ],
+        "due_date": "2021-06-20T17:50:55.711Z",
+        "_id": "60cf7fff931709205caaf285",
+        "items": [
+            {
+                "_id": "60cf7fff931709205caaf286",
+                "name": "fruits",
+                "rate": 5,
+                "quantity": 20,
+                "ammount": 100
+            },
+            {
+                "_id": "60cf7fff931709205caaf287",
+                "name": "color",
+                "rate": 20,
+                "quantity": 20,
+                "ammount": 400
+            },
+            {
+                "_id": "60cf7fff931709205caaf288",
+                "name": "milk",
+                "rate": 10,
+                "quantity": 20,
+                "ammount": 200
+            }
+        ],
+        "biller": "admin@gmail.com",
+        "issue_date": "2021-06-20T17:50:55.711Z",
+        "createdAt": "2021-06-20T17:50:55.716Z",
+        "updatedAt": "2021-06-20T17:50:55.716Z",
+        "__v": 0
+    }
+]
   ```
------
-#
 
 ## Retrieve invoice
 ### Request
 __`GET`__  `/invoices/:id`  
+<br>
 (`id` unique ID of invoice)
   ```json
   headers: {
-    "Authorization":  //JWT Token
+    "Authorization":  "JWT Token (got from logging)"
     }
   ```
 ### Response
@@ -173,19 +268,58 @@ __`GET`__  `/invoices/:id`
     "Content-type":  "application/json"
     }
   body: {
-      
-  }
+    "invoicee": {
+        "name": "admin",
+        "email": "xyz@gmail.com"
+    },
+    "total_ammount": 700,
+    "status": "outstanding",
+    "payment_methods": [
+        "you can pay by cheque",
+        "for online payment use internet banking"
+    ],
+    "due_date": "2021-06-20T17:50:55.711Z",
+    "_id": "60cf7fff931709205caaf285",
+    "items": [
+        {
+            "_id": "60cf7fff931709205caaf286",
+            "name": "fruits",
+            "rate": 5,
+            "quantity": 20,
+            "ammount": 100
+        },
+        {
+            "_id": "60cf7fff931709205caaf287",
+            "name": "color",
+            "rate": 20,
+            "quantity": 20,
+            "ammount": 400
+        },
+        {
+            "_id": "60cf7fff931709205caaf288",
+            "name": "milk",
+            "rate": 10,
+            "quantity": 20,
+            "ammount": 200
+        }
+    ],
+    "biller": "admin@gmail.com",
+    "issue_date": "2021-06-20T17:50:55.711Z",
+    "createdAt": "2021-06-20T17:50:55.716Z",
+    "updatedAt": "2021-06-20T17:50:55.716Z",
+    "__v": 0
+}
   ```
------
-#
+
 ## Update status of invoice
 ### Request
 __`PATCH`__  `/invoices/:id`
+<br>
 (`id` unique ID of invoice)
   ```json
   headers: {
     "Content-type":  "application/json",
-    "Authorization":  //JWT Token
+    "Authorization":  "JWT Token (got from logging)"
     }
   body: {
     "status":"paid"
@@ -198,15 +332,15 @@ __`PATCH`__  `/invoices/:id`
     }
   body: 'Invoice status has been successfully updated'
   ```
------
-#
+
 ## Remove invoice
 ### Request
 __`DELETE`__  `/invoices/:id`
+<br>
 (`id` unique ID of invoice)
   ```json
   headers: {
-    "Authorization":  //JWT Token
+    "Authorization":  "JWT Token (got from logging)"
     }
   ```
 ### Response
