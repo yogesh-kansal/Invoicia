@@ -8,8 +8,9 @@ exports.verifytoken = (req,res,next) => {
         err.status=403;
         return next(err);
     }
+    const secretkey=process.env.SECRETKEY ||'12345678';
 
-    jwt.verify(token,'12345678',(err, decoded) => {
+    jwt.verify(token,secretkey,(err, decoded) => {
         if(err) {
             console.log( err.message)
             err.status=401;

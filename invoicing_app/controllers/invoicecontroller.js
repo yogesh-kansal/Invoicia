@@ -77,10 +77,7 @@ exports.update_invoice=catchAsync(async (req,res,next) => {
     if(!invoice)
     return next(new AppError(`Invoice with given id ${req.params.id} does not exists!!!`,404));
 
-    res.status(200).json({
-        status:'Invoice updated successfully',
-        invoice
-    })
+    res.status(200).json('Invoice status has been successfully updated')
 });
 
 
@@ -108,7 +105,7 @@ exports.del_invoice=catchAsync(async (req,res,next) => {
 
     res.status(200).json({
         status:'success',
-        message:`Invoices with id ${req.params.id} has been deleted successfully!!!`,
+        message:`Invoices with ID ${req.params.id} has been deleted successfully!!!`
     });
 })
 
@@ -122,8 +119,5 @@ exports.late_invoices=catchAsync(async (req,res,next) => {
     if(!lates.length)
         return next(new AppError(`Don't have any late invoices`,404));
 
-    res.status(200).json({
-        status:'success',
-        late_invoices:lates
-    })
+    res.status(200).json(lates)
 });

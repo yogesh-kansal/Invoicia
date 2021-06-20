@@ -6,15 +6,11 @@ const setup= async () => {
    // console.log(testAccount)
 
     let transporter=nodemailer.createTransport({
-        host: testAccount.smtp.host,
-        port: testAccount.smtp.port,
-        secure: testAccount.smtp.secure,
+        service: "Gmail",
         auth: {
-            user: process.env.email || testAccount.user,
-            pass: process.env.email_pass || testAccount.pass
-        },
-        tls: {
-            rejectUnauthorized: false}
+            user: process.env.EMAIL || testAccount.user,
+            pass: process.env.PASS || testAccount.pass
+        }
     });
 
 
@@ -25,7 +21,7 @@ exports.sendMail= async (invoice) => {
     let props=await setup();
     
     let data = {
-        from : process.env.email || props.testAccount.user,
+        from : process.env.EMAIL || props.testAccount.user,
         to : invoice.invoicee.email,
         subject : 'Invoice',
         html: template(invoice)

@@ -52,9 +52,10 @@ exports.login=catchAsync(async (req,res,next) => {
     }
 
     //token expires in 1 hour
+    const secretkey=process.env.SECRETKEY ||'12345678';
     const token = jwt.sign(
         {email},
-        '12345678',
+        secretkey,
         {expiresIn:60*60*1000}
     );
 
