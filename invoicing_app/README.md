@@ -6,7 +6,7 @@
 ## Instructions
  __Environment Variables__
  <br>
-`port` - port number for server.  (__Default__: 3000)
+`PORT` - port number for server.  (__Default__: 3000)
 <br>
 `DBNAME` - database name. (__Default__:"invoice_record")
 <br>
