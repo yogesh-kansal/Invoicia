@@ -2,6 +2,7 @@ const express=require('express');
 const mongoose=require('mongoose');
 const logger=require('morgan');
 const AppError=require('./utils/appError');
+const authRouter=require('./routes/authRouter')
 const invoiceRouter=require('./routes/invoiceRouter');
 
 var app=express();
@@ -11,6 +12,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use('/user',authRouter);
 app.use('/invoice',invoiceRouter);
 
 app.all('*', (req,res,next) => {
