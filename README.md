@@ -1,8 +1,8 @@
 # Invoicia Web App
-A web application for managing invoices of users by an oranization.
+Invoicia is a web application for managing invoices of users by an organization.
 Basically organization can issue invoices using Invoicia app and can send it to users with the help of emails.
 Once user gets invoice he/she will have certain amount of time to pay money for that invoice and application
-will keep track of status of invoice and before deadlines reminder mails will be sent ot users.
+will keep track of status of invoice and before deadlines reminder mails will be sent to users.
 <br></br>
 
 ## Contributing Guidelines
