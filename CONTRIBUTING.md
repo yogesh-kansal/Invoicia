@@ -1,5 +1,5 @@
 ## Contributing Guidelines
-- Have a look at open issues and Feature to be added section of `REAME.md` file or you can also create a new issue and ask for assigning.
+- Have a look at open issues and `Feature to be added section` of `README.md` file or you can also create a new issue and ask for assigning.
 - You just have to ask by commenting on issue to work on perticular issue and you need to briefly describe how you are going to implement that perticular page/feature.
 - Issues will be assigned on the first come first serve basis and you should only create issues which are not alredy there.
 - Once issue is assigned to you , follow the below mentioned instructions and start working on you feature.
