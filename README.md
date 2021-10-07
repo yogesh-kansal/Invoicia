@@ -3,23 +3,8 @@ Invoicia is a web application for managing invoices of users by an organization.
 Basically organization can issue invoices using Invoicia app and can send it to users with the help of emails.
 Once user gets invoice he/she will have certain amount of time to pay money for that invoice and application
 will keep track of status of invoice and before deadlines reminder mails will be sent to users.
-<br></br>
 
-## Contributing Guidelines
-- Have a look at open issues or Feature to be added section of `REAME.md` file or you can also create a new issue and ask for assigning.
-- You just have to ask by commenting on issue to work on perticular issue.
-- Issues will be assigned on the first come first serve basis and you should only create issues which are not alredy there.
-- Once issue is assigned to you , follow the below mentioned instructions and start working on you feature.
-  ## How to contribute
-  - Star and fork this repository.
-  - Clone the repo. to your local system.
-  - create new branch(Apart from main branch) named related to feature and start working on feature.
-  - Code should be properly formated and indented and relevant comments with code will be appreciated.
-  - Open the pull request.
-  - Resolve conflicts ( if any ).
-<br></br>
-
-## Features (from server side)
+# Features (from server side)
 - [x] Create a new invoice
 - [x] Ability to update the status of the invoice
 - [x] Send the invoice via email
@@ -29,21 +14,61 @@ will keep track of status of invoice and before deadlines reminder mails will be
 - [x] User authentication
 
 ## Feature to be added (from client side)
-- Go to `/Invoicia/invoicia_frontend/src` folder,
-- Folder `/components`, `/contexts` contains empty files to be configured as well `routes.js` file has also to be configured.<br><br/>
-- In `/components` folder,
-  - `Dashboard` --> configure `home.js`, `new_invoice.js`, page for app and put all styles in `dashboard_syles.css` file.
-  - `Header`    --> configure header for app using `header.js` and `header.css` files.
-  - `Footer`    --> configure header for app using `footer.js` and `footer.css` files.
-  - `Auth`      --> configure `login.js`, `signup.js`, `foget_password.js` page for app and put all styles in `auth_syles.css` file.
-  - `User`      --> configure `profile.js`, `edit_profile.js`, page for app and put all styles in `user_syles.css` file.<br><br/>
-- In `/contexts` folder
-  - `authContext.js` file to be modified according to requirments.
-  - You can also add more files as per requirments.<br><br/>
+- `/Invoicia/invoicia_frontend/src` folder strcuture:-
+```
+    │   App.css
+    │   App.js
+    │   App.test.js
+    │   index.css
+    │   index.js
+    │   reportWebVitals.js
+    │   routes.js
+    │   setupTests.js
+    │
+    ├───components
+    │   ├───Auth
+    │   │       auth_styles.css
+    │   │       forget_password.js
+    │   │       login.js
+    │   │       signup.js
+    │   │
+    │   ├───Dashboard
+    │   │       dashboard_styles.css
+    │   │       home.js
+    │   │       new_invoice.js
+    │   │
+    │   ├───Footer
+    │   │       footer.css
+    │   │       footer.js
+    │   │
+    │   ├───Header
+    │   │       header.css
+    │   │       header.js
+    │   │
+    │   └───User
+    │           edit_profile.js
+    │           profile.js
+    │           user_styles.css
+    │
+    └───contexts
+            authContext.js
+```
+
+
+- As shown in above structure `Auth`, `Dashboard`, `Footer`, `User`, `contexts` are folders that contains file which needs to be modified or implemented.
+- Auth folder contains login page, signup page and forget password page for app, you are required to implement same in `login.js`, `signup.js` and `forget_password.js` file and styling will be in `auth_styles.css` file. Design and specification are completely dependent on you but pages must have standard fields there and you may add extra fields as well.
+- User folder contains profile page, edit_profile for app, you are required to implement same in `profile.js` and `edit_profile.js` file and styling will be in `user_styles.css` file. Design and specification are completely dependent on you but pages must have standard fields there and you may add extra fields as well.
+- Header folder contains header(which will include navigation) for app, you are required to implement same in `header.js` file and styling will be in `header.css` file. Design and specification are completely dependent on you but pages must have standard fields there and you may add extra fields as well.
+- Footer folder contains footer for app, you are required to implement same in `footer.js` file and styling will be in `footer.css` file. Design and specification are completely dependent on you but pages must have standard fields there and you may add extra fields as well.
+- Dashboard folder contains dashboard for the app which will show all invoices for users as well as will have a form to create a new invoice, you are required to implement same in `home.js` and `new_invoice.js` file and styling will be in `dashboard_styles.css` file. Design and specification are completely dependent on you but pages must have standard fields there and you may add extra fields as well.
+- context folder contains react contexts used in data management. There is `utContext.js` file you have to modify to make user remain loggedin and you can create other contexts as well upon your requirmnets.
 - In `routes.js` file you have to put all the routes fo client side.
 
-`(You are reuired to use react.js for implementationa and for styling you can either use bootstrap5 or matrial-UI.
-You can test your pages based on dummy data as well, no need to connec tit with backend first).`
-<br></br>
+```
+__Note__:- More iformation related to each and every page will be shared with you once it is assigned to you. 
+         You have o strictely use react.js conventions while implementing features and you can test them
+         based on dummy data as well, no need to worry about backend and other things)`.
+```
+- For any doubts and queries feel free to contact me on [Email](mailto:ykk11@iitbbs.ac.in) or [LinkedIn](https://www.linkedin.com/in/yogesh-kansal-044a75194/).
 
-## For any doubts and quires related to project feel free to contact me on [Email](mailto:ykk11@iitbbs.ac.in) | [LinkedIn](https://www.linkedin.com/in/yogesh-kansal-044a75194/).
+<h3 align="center">Happy coding!!!<h3/>
