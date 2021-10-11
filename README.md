@@ -4,6 +4,18 @@ Basically organization can issue invoices using Invoicia app and can send it to 
 Once user gets invoice he/she will have certain amount of time to pay money for that invoice and application
 will keep track of status of invoice and before deadlines reminder mails will be sent to users.
 
+# Getting Started With App
+Before getting started, Keep in mind you should have atleast `Node.js` and `Git` downloaded in your system. Now you have to follow below mentioned steps-
+- git clone `https://github.com/yogesh-kansal/Invoicia.git`
+- cd `Invoicia/invoicia_frontend` 
+- `npm install`
+
+Now onwards to start app do `npm start` 
+
+
+# Contributing Guidelines
+* You can find our Contributing guidelines [here](/CONTRIBUTING.md).
+
 # Features (from server side)
 - [x] Create a new invoice
 - [x] Ability to update the status of the invoice

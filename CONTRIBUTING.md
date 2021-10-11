@@ -4,8 +4,6 @@
 - Issues will be assigned on the first come first serve basis and you should only create issues which are not alredy there.
 - Once issue is assigned to you , follow the below mentioned instructions and start working on you feature.
   ## How to contribute
-  - Star and fork this repository.
-  - Clone the repo. to your local system.
   - create new branch(Apart from main branch) named related to feature and start working on feature.
   - Code should be properly formated and indented and relevant comments with code will be appreciated.
   - Commit message should be relevent as well.
