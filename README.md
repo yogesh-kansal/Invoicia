@@ -10,7 +10,7 @@ Before getting started, Keep in mind you should have atleast `Node.js` and `Git`
 - cd `Invoicia/invoicia_frontend` 
 - `npm install`
 
-Now onwards to start app do `npm start` 
+Now onwards to start app go to `/invoicia_frontend` folder and do `npm start`.
 
 
 # Contributing Guidelines
