@@ -28,7 +28,7 @@ Below description shows only successfull requests.
 ## User Signup
 ### Request
 __`POST`__  `/user/signup`
-  ```json
+  ```
   headers: {
     "Content-type":  "application/json"
     }
@@ -38,7 +38,7 @@ __`POST`__  `/user/signup`
     }
   ```
 ### Response
-  ```json
+  ```
   status: 200 OK
   headers: {
     "Content-type":  "text/html"
@@ -48,7 +48,7 @@ __`POST`__  `/user/signup`
 ## User Login
 ### Request
 __`POST`__  `/user/login`
-  ```json
+  ```
   headers: {
     "Content-type":  "application/json"
     }
@@ -58,7 +58,7 @@ __`POST`__  `/user/login`
     }
   ```
 ### Response
-  ```json
+  ```
   status: 200 OK
   headers: {
     "Content-type":  "application/json"
@@ -80,13 +80,13 @@ API can be used after logging in of user only!!!
 ## Retrieve all invoices
 ### Request
 __`GET`__  `/invoices`
-  ```json
+  ```
   headers: {
     "Authorization":  "JWT Token (got from logging)"
     }
   ```
 ### Response
-  ```json
+  ```
   status: 200 OK
   headers: {
     "Content-type":  "application/json"
@@ -97,7 +97,7 @@ __`GET`__  `/invoices`
 ## Create new invoice
 ### Request
 __`POST`__  `/invoices`
-  ```json
+  ```
   headers: {
     "Content-type":  "application/json",
       "Authorization":  "JWT Token (got from logging)"
@@ -123,7 +123,7 @@ __`POST`__  `/invoices`
 }
   ```
 ### Response
-  ```json
+  ```
   headers: {
     "Content-type":  "application/json",
     }
@@ -177,13 +177,13 @@ __`POST`__  `/invoices`
 ## Remove all invoices
 ### Request
 __`DELETE`__  `/invoices`
-  ```json
+  ```
   headers: {
     "Authorization":  "JWT Token (got from logging)"
     }
   ```
 ### Response
-  ```json
+  ```
   status: 200 OK
   headers: {
     "Content-type":  "application/json"
@@ -196,13 +196,13 @@ __`DELETE`__  `/invoices`
 ## Retrieve late invoices
 ### Request
 __`GET`__  `/invoices/late`
-  ```json
+  ```
   headers: {
     "Content-type":  "application/json"
     }
   ```
 ### Response
-  ```json
+  ```
   headers: {
     "Content-type":  "application/json"
     }
@@ -256,13 +256,13 @@ __`GET`__  `/invoices/late`
 __`GET`__  `/invoices/:id`  
 <br>
 (`id` unique ID of invoice)
-  ```json
+  ```
   headers: {
     "Authorization":  "JWT Token (got from logging)"
     }
   ```
 ### Response
-  ```json
+  ```
   status: 200 OK
   headers: {
     "Content-type":  "application/json"
@@ -316,7 +316,7 @@ __`GET`__  `/invoices/:id`
 __`PATCH`__  `/invoices/:id`
 <br>
 (`id` unique ID of invoice)
-  ```json
+  ```
   headers: {
     "Content-type":  "application/json",
     "Authorization":  "JWT Token (got from logging)"
@@ -326,7 +326,7 @@ __`PATCH`__  `/invoices/:id`
     }
   ```
 ### Response
-  ```json
+  ```
   headers: {
     "Content-type":  "text/html",
     }
@@ -338,13 +338,13 @@ __`PATCH`__  `/invoices/:id`
 __`DELETE`__  `/invoices/:id`
 <br>
 (`id` unique ID of invoice)
-  ```json
+  ```
   headers: {
     "Authorization":  "JWT Token (got from logging)"
     }
   ```
 ### Response
-  ```json
+  ```
   status: 200 OK
   headers: {
     "Content-type":  "application/json"
